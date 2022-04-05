@@ -3,21 +3,65 @@ components:
     User:
       type: object
       properties:
-        id:
-          type: string
-        email:
-          type: string
-          format: email
-        name:
-          type: string
-        role:
-          type: string
-          enum: [user, admin]
-      example:
+    id:
+      type: string
+    email:
+      type: string
+      format: email
+    name:
+      type: string
+    role:
+      type: string
+      enum: [user, admin]
+    example:
         id: 5ebac534954b54139806c112
         email: fake@example.com
         name: fake name
         role: user
+
+   Artist:
+      type: object
+      properties:
+        id:
+          type: string
+        artistName:
+          type: string
+          format: string
+        selectedFile:
+          type: string
+        rating:
+          type: number
+        followersCount:
+          type: number  
+      example:
+        id: 5ebac534954b54139806c112
+        artistName: fake name
+        selectedFile: 43287638jhjsahjdh
+        rating: 4
+        followersCount: 23445
+
+  Album:
+      type: object
+      properties:
+        id:
+          type: string
+        artistName:
+          type: string
+        albumName:
+          type: string
+        selectedFile:
+          type: string
+        releaseDate:
+          type: number
+        numberOfTracks:
+          type: number  
+      example:
+        id: 5ebac534954b54139806c112
+        artistName: fake name
+        albumName: fake name
+        selectedFile: 43287638jhjsahjdh
+        releaseDate: 2000
+        numberOfTracks: 9
 
     Token:
       type: object

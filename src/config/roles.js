@@ -1,6 +1,36 @@
 const allRoles = {
-  user: [],
-  admin: ['getUsers', 'manageUsers'],
+  user: [
+    'getUsers',
+    'manageUsers',
+    'manageAlbums',
+    'manageArtists',
+    'createAlbum',
+    'getAlbums',
+    'getAlbum',
+    'updateAlbum',
+    'deleteAlbum',
+    'createArtist',
+    'getArtists',
+    'getArtist',
+    'updateArtist',
+    'deleteArtist',
+  ],
+  admin: [
+    'getUsers',
+    'manageUsers',
+    'manageAlbums',
+    'manageArtists',
+    'createAlbum',
+    'getAlbums',
+    'getAlbum',
+    'updateAlbum',
+    'deleteAlbum',
+    'createArtist',
+    'getArtists',
+    'getArtist',
+    'updateArtist',
+    'deleteArtist',
+  ],
 };
 
 const roles = Object.keys(allRoles);
