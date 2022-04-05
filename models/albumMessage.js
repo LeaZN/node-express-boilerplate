@@ -5,7 +5,9 @@ const albumSchema = mongoose.Schema({
     albumName: String,
     artistName: String,
     selectedFile: String,
-    releaseDate: Date,
+
+    releaseDate: Number,
+
     numberOfTracks: Number,
     
 });

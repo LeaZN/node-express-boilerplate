@@ -34,3 +34,18 @@ export const createArtist = async (req, res) => {
     }
 
 }
+
+
+
+export const updateArtist = () => async (req, res) => {
+
+    const { id: _id } = req.params;
+    const artist = req.body;
+
+    if(!mongoose.Types.ObjectId.isValid(_id)) return res.status(404).send('No artists with that id');
+
+    const  updatedArtist = await ArtistMessage.findByIdAndUpdate(_id, artist, { new: true });
+
+    res.json(updatedArtist);
+
+}

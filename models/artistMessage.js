@@ -4,10 +4,7 @@ const artistSchema = mongoose.Schema({
 
     artistName: String,
     selectedFile: String,
-    followersCount: {
-        type: Number,
-        default: 0
-    },
+    followersCount: Number,
     rating: Number,
     
 });
