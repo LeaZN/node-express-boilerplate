@@ -16,9 +16,9 @@ yarn install
 Set the environment variables:
 
 ```bash
-rename .env.example to .env
+simply rename .env.example to .env
 
-# open .env and modify the environment variables (if needed)
+# not need to update the variable as I did already
 ```
 
 
