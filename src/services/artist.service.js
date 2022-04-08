@@ -27,9 +27,13 @@ const createArtist = async (artistBody) => {
  * @param {number} [options.page] - Current page (default = 1)
  * @returns {Promise<QueryResult>}
  */
-const queryArtists = async (filter, options) => {
-  const artists = await Artist.paginate(filter, options);
-  return artists;
+// const queryArtists = async (filter, options) => {
+//   const artists = await Artist.paginate(filter, options);
+//   return artists;
+// };
+
+const queryArtists = async () => {
+  return Artist.find();
 };
 
 /**

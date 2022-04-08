@@ -27,9 +27,13 @@ const createAlbum = async (albumBody) => {
  * @param {number} [options.page] - Current page (default = 1)
  * @returns {Promise<QueryResult>}
  */
-const queryAlbums = async (filter, options) => {
-  const albums = await Album.paginate(filter, options);
-  return albums;
+
+// const queryAlbums = async (filter, options) => {
+//   const albums = await Album.paginate(filter, options);
+//   return albums;
+// };
+const queryAlbums = async () => {
+  return Album.find();
 };
 
 /**
@@ -47,7 +51,7 @@ const getAlbumById = async (id) => {
  * @returns {Promise<Album>}
  */
 const getAlbumByArtistName = async (artistName) => {
-  return Album.findOne({ artistName });
+  return Album.find({ artistName });
 };
 
 /**

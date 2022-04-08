@@ -1,5 +1,5 @@
 const httpStatus = require('http-status');
-const pick = require('../utils/pick');
+// const pick = require('../utils/pick');
 const ApiError = require('../utils/ApiError');
 const catchAsync = require('../utils/catchAsync');
 const { albumService } = require('../services');
@@ -9,20 +9,28 @@ const createAlbum = catchAsync(async (req, res) => {
   res.status(httpStatus.CREATED).send(album);
 });
 
-const getAlbums = catchAsync(async (req, res) => {
-  const filter = pick(req.query, ['albumName', 'artistName']);
-  const options = pick(req.query, ['sortBy', 'limit', 'page']);
-  const result = await albumService.queryAlbums(filter, options);
-  res.send(result);
-});
-
 // const getAlbums = catchAsync(async (req, res) => {
-//   const album = await albumService.getAlbums(req.body);
-//   res.status(httpStatus.CREATED).send(album);
+//   const filter = pick(req.query, ['albumName', 'artistName']);
+//   const options = pick(req.query, ['sortBy', 'limit', 'page']);
+//   const result = await albumService.queryAlbums(filter, options);
+//   res.send(result);
 // });
+
+const getAlbums = catchAsync(async (req, res) => {
+  const album = await albumService.queryAlbums();
+  res.send(album);
+});
 
 const getAlbum = catchAsync(async (req, res) => {
   const album = await albumService.getAlbumById(req.params.albumId);
+  if (!album) {
+    throw new ApiError(httpStatus.NOT_FOUND, 'Album not found');
+  }
+  res.send(album);
+});
+
+const getAlbumByArtistName = catchAsync(async (req, res) => {
+  const album = await albumService.getAlbumByArtistName(req.params.artistName);
   if (!album) {
     throw new ApiError(httpStatus.NOT_FOUND, 'Album not found');
   }
@@ -43,6 +51,7 @@ module.exports = {
   createAlbum,
   getAlbums,
   getAlbum,
+  getAlbumByArtistName,
   updateAlbum,
   deleteAlbum,
 };

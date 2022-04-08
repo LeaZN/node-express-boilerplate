@@ -1,5 +1,5 @@
 const httpStatus = require('http-status');
-const pick = require('../utils/pick');
+// const pick = require('../utils/pick');
 const ApiError = require('../utils/ApiError');
 const catchAsync = require('../utils/catchAsync');
 const { artistService } = require('../services');
@@ -9,11 +9,16 @@ const createArtist = catchAsync(async (req, res) => {
   res.status(httpStatus.CREATED).send(artist);
 });
 
+// const getArtists = catchAsync(async (req, res) => {
+//   const filter = pick(req.query, ['artistName', 'rating']);
+//   const options = pick(req.query, ['sortBy', 'limit', 'page']);
+//   const result = await artistService.queryArtists(filter, options);
+//   res.send(result);
+// });
+
 const getArtists = catchAsync(async (req, res) => {
-  const filter = pick(req.query, ['artistName', 'rating']);
-  const options = pick(req.query, ['sortBy', 'limit', 'page']);
-  const result = await artistService.queryArtists(filter, options);
-  res.send(result);
+  const album = await artistService.queryArtists();
+  res.send(album);
 });
 
 // const getArtists = catchAsync(async (req, res) => {
