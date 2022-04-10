@@ -54,7 +54,7 @@ List of available routes:
 `GET /v1/artists` - get all artists\
 
 **Albums routes**:\
-`POST /v1/albums` - create an albums\
+`POST /v1/albums` - create an album\
 `GET /v1/albums` - get all albums\
 
 
