@@ -18,7 +18,7 @@ Set the environment variables:
 ```bash
 simply rename .env.example to .env
 
-# not need to update the variable as I did already
+# no need to update the variable as I did already
 ```
 
 
