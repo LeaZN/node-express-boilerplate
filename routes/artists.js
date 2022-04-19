@@ -11,4 +11,4 @@ router.post('/', createArtist);
 router.patch('/:id', updateArtist);
 
 
-export default router;
+export default router; 
