@@ -1,3 +1,4 @@
+// const path = require('path');
 const express = require('express');
 const helmet = require('helmet');
 const xss = require('xss-clean');
@@ -63,5 +64,10 @@ app.use(errorConverter);
 
 // handle error
 app.use(errorHandler);
+
+// All other GET requests not handled before will return our React app
+// app.get('/*', (req, res) => {
+//   res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
+// });
 
 module.exports = app;
